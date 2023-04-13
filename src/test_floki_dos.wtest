@@ -1,0 +1,16 @@
+import personajes.*
+import armas.ballesta
+import jugador.*
+import elementos.*
+
+test "Luisa con Floki usando la ballesta y se encuentra a Aurora y el Castillo" {
+	floki.cambiarArma(ballesta)
+	luisa.setPersonajeActivo(floki)
+	luisa.aparece(aurora)
+	luisa.aparece(castillo)
+	assert.equals(0, mario.valorRecolectado())
+	assert.that(aurora.estaViva())
+	assert.equals(146, castillo.nivelDeDefensa())
+	assert.that(ballesta.estaCargada())
+	assert.equals(8, ballesta.flechas())
+}
